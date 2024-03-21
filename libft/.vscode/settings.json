@@ -1,0 +1,15 @@
+{
+    "42header.email": "eprzybyl@student.42lausanne.ch",
+    "42header.username": "eprzybyl",
+    "[c]": {
+        "editor.defaultFormatter": "keyhr.42-c-format",
+      },
+      "editor.tabSize": 4,
+"editor.insertSpaces": false,
+"editor.renderWhitespace": "all",
+"files.trimTrailingWhitespace": true,
+"files.insertFinalNewline": true,
+"norminette.command": "norminette",
+"norminette.fileregex": "^ft.*\\.[ch]$",
+"C_Cpp.errorSquiggles": "disabled",
+}
