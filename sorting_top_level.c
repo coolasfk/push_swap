@@ -6,7 +6,7 @@
 /*   By: eprzybyl <eprzybyl@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 12:18:00 by eprzybyl          #+#    #+#             */
-/*   Updated: 2024/03/21 19:33:09 by eprzybyl         ###   ########.fr       */
+/*   Updated: 2024/03/22 16:07:52 by eprzybyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	sort_more(t_v *v)
 		v->temp_index_a = 0;
 		calc_cost(v);
 		operations(v);
-		ft_printf("node to be pushed: %d\n", v->a->n);
+		//ft_printf("node to be pushed: %d\n", v->a->n);
 		push_b(v);
 	}
 	v->temp_index_a = 0;
@@ -76,7 +76,8 @@ void sadly_put_it_back(t_v *v)
 	}
 	
 		push_a(v);
-	print_list(v->a);
+		rrotate_a(v);
+	//print_list(v->a);
 }
 
 

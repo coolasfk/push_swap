@@ -6,7 +6,7 @@
 /*   By: eprzybyl <eprzybyl@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 11:43:24 by eprzybyl          #+#    #+#             */
-/*   Updated: 2024/03/21 19:33:09 by eprzybyl         ###   ########.fr       */
+/*   Updated: 2024/03/22 18:59:45 by eprzybyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 
 # include "ft_printf.h"
 # include "libft.h"
+# include "checker.h"
 # include <stdio.h>
 # include <stdlib.h>
+# include "get_next_line.h"
 
 typedef struct at_lst
 {

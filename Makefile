@@ -1,5 +1,6 @@
 # Name of the executable
 NAME = push_swap
+NAME2 = checker
 
 # Compiler
 CC = gcc 
@@ -17,10 +18,16 @@ LDLIBS := -framework OpenGL -framework AppKit -lm
 SRC = $(wildcard *.c) \
 		$(wildcard libft/ft_*.c) \
 		$(wildcard printf/ft_*.c) \
-	  
+
+SRC_BONUS = $(wildcard bonus/bonus_*.c) \
+			$(wildcard printf/ft*.c) \
+			$(wildcard libft/ft_*.c) \
+			$(wildcard gnl/ft_*.c)
 # SRC := $(wildcard src/*.c)
 # Object files
 OBJ = $(SRC:.c=.o)
+
+OBJ2 = $(SRC_BONUS:.c=.o)
 
 # Phony targets for make commands
 .PHONY: all clean fclean re
@@ -31,6 +38,15 @@ all: $(NAME)
 # Rule to link the program
 $(NAME): $(OBJ)
 	$(CC) $(OBJ) $(LDLIBS) -o $(NAME)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+bonus: $(NAME2)
+
+# Rule to link the program
+$(NAME2): $(OBJ2)
+	$(CC) $(OBJ2) $(LDLIBS) -o $(NAME2)
 
 # Rule to compile source files into object files
 %.o: %.c
@@ -45,5 +61,14 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 
+clean_bonus:
+	rm -f $(OBJ2) $(NAME2)
+
+# Rule to fully clean the project, including the executable
+fclean_bonus: clean
+	rm -f $(NAME2)
+
 # Rule to re-make the project
 re: fclean all
+
+re2: fclean_bonus bonus
