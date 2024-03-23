@@ -6,19 +6,19 @@
 /*   By: eprzybyl <eprzybyl@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 11:43:24 by eprzybyl          #+#    #+#             */
-/*   Updated: 2024/03/22 18:59:45 by eprzybyl         ###   ########.fr       */
+/*   Updated: 2024/03/23 20:35:37 by eprzybyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "ft_printf.h"
-# include "libft.h"
 # include "checker.h"
+# include "ft_printf.h"
+# include "get_next_line.h"
+# include "libft.h"
 # include <stdio.h>
 # include <stdlib.h>
-# include "get_next_line.h"
 
 typedef struct at_lst
 {
@@ -84,8 +84,12 @@ int					search_for_biggest(t_v *v);
 int					check_for_duplicates(int argc, char *argv[], t_v *v);
 int					check_for_duplicates_one_arg(char **s, t_v *v);
 void				inner_loop(t_v *v);
-void				numbers_is_bigger(t_v *v);
+void				number_is_smaller(t_v *v);
 void				build_b(long long el, t_v *v);
 void				sadly_put_it_back(t_v *v);
+void				rrotate_b1(t_v *v);
+void				rrotate_a1(t_v *v);
+void				rotate_a1(t_v *v);
+void				rotate_b1(t_v *v);
 
 #endif /* SO_LONG_H */

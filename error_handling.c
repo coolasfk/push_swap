@@ -6,7 +6,7 @@
 /*   By: eprzybyl <eprzybyl@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 12:13:50 by eprzybyl          #+#    #+#             */
-/*   Updated: 2024/03/21 15:23:36 by eprzybyl         ###   ########.fr       */
+/*   Updated: 2024/03/23 14:29:51 by eprzybyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	check_errors(char *arg, t_lst *a)
 			ft_printf("%s\n", "Error");
 			if (a != NULL)
 				free_leaks(&a);
-			return (1);
+			exit(1);
 		}
 		i++;
 	}
@@ -49,7 +49,7 @@ int	check_for_duplicates(int argc, char *argv[], t_v *v)
 			{
 				free_leaks(&v->a);
 				ft_printf("%s\n", "Error");
-				exit(0);
+				exit(1);
 			}
 			v->ptr = v->ptr->next;
 		}
@@ -77,7 +77,7 @@ int	check_for_duplicates_one_arg(char **s, t_v *v)
 			{
 				free_leaks(&v->a);
 				ft_printf("%s\n", "Error");
-				exit(0);
+				exit(1);
 			}
 			v->ptr = v->ptr->next;
 		}

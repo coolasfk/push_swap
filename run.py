@@ -1,7 +1,7 @@
 import os
 import random
 for x in range(1):
-    n = 100
+    n = 500
     A = [0 for y in range(n)]
     for y in range(n):
         A[y] = y+1

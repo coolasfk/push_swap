@@ -6,7 +6,7 @@
 /*   By: eprzybyl <eprzybyl@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 17:57:49 by eprzybyl          #+#    #+#             */
-/*   Updated: 2024/03/22 19:22:15 by eprzybyl         ###   ########.fr       */
+/*   Updated: 2024/03/23 12:57:58 by eprzybyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@ void	initialize_var2(t_ch *ch)
 	ch->node = NULL;
 	ch->i = 1;
 	ch->count = 0;
+	ch->old_line = NULL;
+	ch->temp_line = NULL;
+	ch->new_line = NULL;
+	ch->action_line = NULL;
 }
 
 void	build_a2(int argc, char *argv[], t_ch *ch)
@@ -48,7 +52,7 @@ void	build_a2(int argc, char *argv[], t_ch *ch)
 	}
 	if (check_for_duplicates2(argc, argv, ch))
 		return ;
-	perform_operations(ch);
+	read_from_terminal(ch);
 }
 
 void	one_arg_only2(char *argv[], t_ch *ch)
@@ -72,7 +76,7 @@ void	one_arg_only2(char *argv[], t_ch *ch)
 	if (check_for_duplicates_one_arg2(s, ch))
 		return ;
 	ch->count = i;
-	perform_operations(ch);
+	read_from_terminal(ch);
 }
 
 void	build_b2(long long el, t_ch *ch)

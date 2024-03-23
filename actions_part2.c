@@ -6,7 +6,7 @@
 /*   By: eprzybyl <eprzybyl@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 13:05:32 by eprzybyl          #+#    #+#             */
-/*   Updated: 2024/03/21 13:36:05 by eprzybyl         ###   ########.fr       */
+/*   Updated: 2024/03/23 17:03:16 by eprzybyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,18 @@ void	rrotate_b(t_v *v)
 
 void	rrr(t_v *v)
 {
-	rrotate_b(v);
-	rrotate_a(v);
+	rrotate_b1(v);
+	rrotate_a1(v);
 	ft_printf("%s\n", "rrr");
+	v->counter++;
 }
 
 void	rr(t_v *v)
 {
-	rotate_b(v);
-	rotate_a(v);
+	rotate_b1(v);
+	rotate_a1(v);
 	ft_printf("%s\n", "rr");
+	v->counter++;
 }
 
 void	rrotate_a(t_v *v)

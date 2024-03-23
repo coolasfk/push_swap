@@ -6,7 +6,7 @@
 /*   By: eprzybyl <eprzybyl@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 12:18:00 by eprzybyl          #+#    #+#             */
-/*   Updated: 2024/03/22 16:07:52 by eprzybyl         ###   ########.fr       */
+/*   Updated: 2024/03/23 22:03:52 by eprzybyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	choose_sort(t_v *v)
 		sort_more(v);
 	if (v->a != NULL)
 		free_leaks(&v->a);
-	
 }
 
 void	sort_three(t_v *v)
@@ -49,44 +48,31 @@ void	sort_more(t_v *v)
 	{
 		v->temp_index_a = 0;
 		calc_cost(v);
-		operations(v);
-		//ft_printf("node to be pushed: %d\n", v->a->n);
+		operations(v);	
 		push_b(v);
+	
 	}
 	v->temp_index_a = 0;
 	calc_cost(v);
 	operations(v);
 	push_b(v);
-	
-	
 	push_last_and_sort(v);
-	//ft_printf("-----------print b: %s\n", ":");
-	//print_list(v->b);
+	// ft_printf("-----------print b: %s\n", ":");
+	// print_list(v->b);
 	sadly_put_it_back(v);
 	is_sorted(v);
 }
 
-void sadly_put_it_back(t_v *v)
+void	sadly_put_it_back(t_v *v)
 {
-	t_lst *ptr;
-	ptr = v->b;
-	while(v->b->next != NULL)
+	
+	while (v->b->next != NULL)
 	{
 		push_a(v);
 	}
+	push_a(v);
 	
-		push_a(v);
-		rrotate_a(v);
-	//print_list(v->a);
 }
-
-
-
-
-
-
-
-
 
 void	calc_cost(t_v *v)
 {
@@ -121,11 +107,12 @@ void	inner_loop(t_v *v)
 	v->biggest = 0;
 	v->index_b_loop = 0;
 	v->temp = v->b;
+	v->diff = 2147483647;
 	while (v->temp != NULL)
 	{
 		if (v->temp->n <= v->ptr->n)
 		{
-			if (v->diff == 2147483647 || v->ptr->n - v->temp->n <= v->diff)
+			if (v->diff == 2147483647 ||  v->ptr->n - v->temp->n <= v->diff)
 			{
 				v->diff = v->ptr->n - v->temp->n;
 				v->temp_index_b = v->index_b_loop;
@@ -134,6 +121,7 @@ void	inner_loop(t_v *v)
 		v->index_b_loop++;
 		v->temp = v->temp->next;
 	}
+	// ft_printf("****v->temp_index_b %d\n", v->temp_index_b);
 	if (v->diff == 2147483647)
-		numbers_is_bigger(v);
+		number_is_smaller(v);
 }

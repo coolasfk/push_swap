@@ -6,7 +6,7 @@
 /*   By: eprzybyl <eprzybyl@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 12:18:47 by eprzybyl          #+#    #+#             */
-/*   Updated: 2024/03/21 19:33:09 by eprzybyl         ###   ########.fr       */
+/*   Updated: 2024/03/23 22:02:40 by eprzybyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	push_last_and_sort(t_v *v)
 	}
 }
 
-void	numbers_is_bigger(t_v *v)
+void	number_is_smaller(t_v *v)
 {
 	v->temp = v->b;
 	v->index_b_loop = 0;
@@ -44,14 +44,88 @@ void	numbers_is_bigger(t_v *v)
 	{
 		if (v->temp->n > v->biggest)
 		{
+			printf("------biggest: %lld\n", v->biggest);
+			printf("------v->temp_index_b: %d\n", v->temp_index_b);
 			v->biggest = v->temp->n;
 			v->temp_index_b = v->index_b_loop;
+			v->diff = 0;
 		}
 		v->index_b_loop++;
 		v->temp = v->temp->next;
 	}
+	if(v->diff != 0)
+	v->temp_index_b = 0;
 }
 
+void	rrr_rr_check(t_v *v)
+{
+	if ((v->index_a <= list_length(v->a) / 2)
+		&& (v->index_b <= list_length(v->b) / 2))
+	{
+		while (v->index_a > 0 && v->index_b > 0)
+		{
+			rr(v);
+			v->index_a--;
+			v->index_b--;
+		}
+	}
+	if ((v->index_a > list_length(v->a) / 2) && (v->index_b > list_length(v->b)
+			/ 2))
+	{
+		while ((list_length(v->b) - v->index_b > 0) && (list_length(v->a)
+				- v->index_a > 0))
+		{
+			rrr(v);
+			v->index_a++;
+			v->index_b++;
+		}
+	}
+}
+
+void	v_a_operations(t_v *v)
+{
+	if (v->index_a <= list_length(v->a) / 2)
+	{
+		while (v->index_a > 0)
+		{
+			rotate_a(v);
+			v->index_a--;
+		}
+	}
+	else
+	{
+		while (list_length(v->a) - v->index_a > 0)
+		{
+			rrotate_a(v);
+			v->index_a++;
+		}
+	}
+}
+
+void	operations(t_v *v)
+{
+	// printf("v->index_b %d\n", v->index_b);
+	rrr_rr_check(v);
+	v_a_operations(v);
+	if (v->index_b <= list_length(v->b) / 2)
+	{
+		while (v->index_b > 0)
+		{
+			rotate_b(v);
+			v->index_b--;
+		}
+	}
+	else
+	{
+		while (list_length(v->b) - v->index_b > 0)
+		{
+			rrotate_b(v);
+			v->index_b++;
+		}
+	}
+}
+
+/*
 void	rrr_rr_check(t_v *v)
 {
 	if ((v->index_a <= list_length(v->a) / 2)
@@ -118,3 +192,4 @@ void	operations(t_v *v)
 		}
 	}
 }
+*/
