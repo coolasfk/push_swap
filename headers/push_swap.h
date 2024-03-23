@@ -6,7 +6,7 @@
 /*   By: eprzybyl <eprzybyl@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 11:43:24 by eprzybyl          #+#    #+#             */
-/*   Updated: 2024/03/23 20:35:37 by eprzybyl         ###   ########.fr       */
+/*   Updated: 2024/03/23 23:00:22 by eprzybyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,5 +91,7 @@ void				rrotate_b1(t_v *v);
 void				rrotate_a1(t_v *v);
 void				rotate_a1(t_v *v);
 void				rotate_b1(t_v *v);
+void				sort_five(t_v *v);
+void	sort_loop(t_v *v);
 
 #endif /* SO_LONG_H */

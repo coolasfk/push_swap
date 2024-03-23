@@ -6,7 +6,7 @@
 /*   By: eprzybyl <eprzybyl@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 12:18:47 by eprzybyl          #+#    #+#             */
-/*   Updated: 2024/03/23 22:02:40 by eprzybyl         ###   ########.fr       */
+/*   Updated: 2024/03/23 22:15:33 by eprzybyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,6 @@ void	number_is_smaller(t_v *v)
 	{
 		if (v->temp->n > v->biggest)
 		{
-			printf("------biggest: %lld\n", v->biggest);
-			printf("------v->temp_index_b: %d\n", v->temp_index_b);
 			v->biggest = v->temp->n;
 			v->temp_index_b = v->index_b_loop;
 			v->diff = 0;

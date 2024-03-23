@@ -6,7 +6,7 @@
 /*   By: eprzybyl <eprzybyl@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 12:22:36 by eprzybyl          #+#    #+#             */
-/*   Updated: 2024/03/23 22:04:47 by eprzybyl         ###   ########.fr       */
+/*   Updated: 2024/03/23 22:08:31 by eprzybyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ int	is_sorted(t_v *v)
 		}
 		check = check->next;
 	}
-	printf("--------counter: %d\n", v->counter);
-	printf("--------count: %d\n", v->count);
-	print_list(v->a);
+	//printf("--------counter: %d\n", v->counter);
+	//printf("--------count: %d\n", v->count);
+	//print_list(v->a);
 	exit(0);
 	return (1);
 }
@@ -85,8 +85,6 @@ int	search_for_biggest(t_v *v)
 		ptr = ptr->next;
 		temp_index++;
 	}
-	printf("next biggest to be moved:%lld\n", biggest);
-
 	return (index);
 }
 

@@ -6,7 +6,7 @@
 /*   By: eprzybyl <eprzybyl@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 13:05:32 by eprzybyl          #+#    #+#             */
-/*   Updated: 2024/03/22 17:51:09 by eprzybyl         ###   ########.fr       */
+/*   Updated: 2024/03/23 22:19:04 by eprzybyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,23 +28,19 @@ void	rrotate_b2(t_ch *ch)
 	ch->node->next = ch->b;
 	ch->node->prev = NULL;
 	ch->b = ch->node;
-	ch->counter++;
 	ch->b->prev = NULL;
-	ft_printf("%s\n", "rrb");
 }
 
 void	rrr2(t_ch *ch)
 {
 	rrotate_b2(ch);
 	rrotate_a2(ch);
-	ft_printf("%s\n", "rrr");
 }
 
 void	rr2(t_ch *ch)
 {
 	rotate_b2(ch);
 	rotate_a2(ch);
-	ft_printf("%s\n", "rr");
 }
 
 void	rrotate_a2(t_ch *ch)
@@ -64,7 +60,5 @@ void	rrotate_a2(t_ch *ch)
 	ch->node->next = ch->a;
 	ch->node->prev = NULL;
 	ch->a = ch->node;
-	ft_printf("%s\n", "rra");
-	ch->counter++;
 	ch->a->prev = NULL;
 }

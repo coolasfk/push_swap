@@ -6,7 +6,7 @@
 /*   By: eprzybyl <eprzybyl@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 08:49:16 by eprzybyl          #+#    #+#             */
-/*   Updated: 2024/03/22 17:50:25 by eprzybyl         ###   ########.fr       */
+/*   Updated: 2024/03/23 22:19:29 by eprzybyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,6 @@ ptr = ch->a;
 		ch->b = ptr;
 		ch->b->prev = NULL;
 	}
-	ch->counter++;
-	ft_printf("%s\n", "pb");
 }
 
 void	push_a2(t_ch *ch)
@@ -55,8 +53,6 @@ void	push_a2(t_ch *ch)
 	ch->ptr->next = ch->a;
 	ch->ptr->prev = NULL;
 	ch->a = ch->ptr;
-	ch->counter++;
-	ft_printf("%s\n", "pa");
 }
 
 void	rotate_a2(t_ch *ch)
@@ -70,8 +66,6 @@ void	rotate_a2(t_ch *ch)
 		ch->temp = ch->temp->next;
 	ch->temp->next = ch->ptr;
 	ch->temp->next->next = NULL;
-	ch->counter++;
-	ft_printf("%s\n", "ra");
 }
 
 void	rotate_b2(t_ch *ch)
@@ -85,8 +79,6 @@ void	rotate_b2(t_ch *ch)
 		ch->temp = ch->temp->next;
 	ch->temp->next = ch->ptr;
 	ch->temp->next->next = NULL;
-	ch->counter++;
-	ft_printf("%s\n", "rb");
 }
 
 void	swap_a2(t_ch *ch)
@@ -96,6 +88,4 @@ void	swap_a2(t_ch *ch)
 	temp = ch->a->n;
 	ch->a->n = ch->a->next->n;
 	ch->a->next->n = temp;
-	ch->counter++;
-	ft_printf("%s\n", "sa");
 }

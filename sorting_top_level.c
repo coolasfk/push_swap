@@ -6,7 +6,7 @@
 /*   By: eprzybyl <eprzybyl@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 12:18:00 by eprzybyl          #+#    #+#             */
-/*   Updated: 2024/03/23 22:03:52 by eprzybyl         ###   ########.fr       */
+/*   Updated: 2024/03/23 23:04:08 by eprzybyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ void	choose_sort(t_v *v)
 		return ;
 	if (v->count <= 3)
 		sort_three(v);
-	else if (v->count > 3)
+	else if (v->count <= 5)
+		sort_five(v);
+	else if (v->count > 5)
 		sort_more(v);
 	if (v->a != NULL)
 		free_leaks(&v->a);
@@ -40,6 +42,21 @@ void	sort_three(t_v *v)
 	}
 }
 
+void	sort_five(t_v *v)
+{
+	sort_loop(v);
+	v->ptr = v->a;
+	if (is_sorted(v))
+		return ;
+	while (v->count-- > 4)
+		sort_loop(v);
+	v->ptr = v->a;
+	sort_three(v);
+	while (v->b != NULL)
+		push_a(v);
+	print_list(v->a);
+}
+
 void	sort_more(t_v *v)
 {
 	v->ptr = v->a;
@@ -57,8 +74,6 @@ void	sort_more(t_v *v)
 	operations(v);
 	push_b(v);
 	push_last_and_sort(v);
-	// ft_printf("-----------print b: %s\n", ":");
-	// print_list(v->b);
 	sadly_put_it_back(v);
 	is_sorted(v);
 }

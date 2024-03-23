@@ -6,7 +6,7 @@
 /*   By: eprzybyl <eprzybyl@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 14:58:29 by eprzybyl          #+#    #+#             */
-/*   Updated: 2024/03/22 19:22:52 by eprzybyl         ###   ########.fr       */
+/*   Updated: 2024/03/23 22:39:02 by eprzybyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	check_errors2(char *arg, t_chl *a)
 			ft_printf("%s\n", "Error");
 			if (a != NULL)
 				free_leaks2(&a);
-			return (1);
+			exit (1);
 		}
 		i++;
 	}

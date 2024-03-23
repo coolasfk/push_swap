@@ -6,7 +6,7 @@
 /*   By: eprzybyl <eprzybyl@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 14:58:32 by eprzybyl          #+#    #+#             */
-/*   Updated: 2024/03/23 14:04:14 by eprzybyl         ###   ########.fr       */
+/*   Updated: 2024/03/23 22:50:08 by eprzybyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,20 @@ int	is_sorted2(t_ch *ch)
 		if (check->n > check->next->n)
 		{
 			check = ch->a;
-			printf("your list is not sorted: %s\n", "KO");
+			printf("%s\n", "KO");
 			print_list2(ch->a);
-			return (0);
+			//free_leaks2(&ch->a);
+			//free_leaks2(&ch->b);
+			exit(1);
 		}
 		check = check->next;
 	}
-	printf("--------counter: %d\n", ch->counter);
-	printf("--------count: %d\n", ch->count);
-	printf("Your list is sorted: %s\n", "OK");
+	printf("%s\n", "OK");
 	print_list2(ch->a);
-	exit(0);
-	return (1);
+	//free_leaks2(&ch->a);
+	//free_leaks2(&ch->b);
+	exit(1);
+	return (0);
 }
 
 void	free_leaks2(t_chl **a)
@@ -96,7 +98,6 @@ int	main(int argc, char *argv[])
 
 void	perform_operations(char *line, t_ch *ch)
 {
-	printf("im here 99");
 	if (ft_strcmp(line, "pb") == 0)
 		push_b2(ch);
 	if (ft_strcmp(line, "pa") == 0)
@@ -115,6 +116,15 @@ void	perform_operations(char *line, t_ch *ch)
 		rrr2(ch);
 }
 
+void	free_line(t_ch *ch)
+{
+	while (*ch->action_line)
+	{
+		free(*ch->action_line);
+		ch->action_line++;
+	}
+}
+
 void	read_from_terminal(t_ch *ch)
 {
 	while (1)
@@ -131,6 +141,7 @@ void	read_from_terminal(t_ch *ch)
 			free(ch->new_line);
 			free(ch->old_line);
 			ch->old_line = ch->temp_line;
+			//free(ch->temp_line);
 		}
 	}
 	close(0);
@@ -139,7 +150,10 @@ void	read_from_terminal(t_ch *ch)
 	while (*ch->action_line)
 	{
 		perform_operations(*ch->action_line, ch);
+		free(*ch->action_line);
 		ch->action_line++;
 	}
+	free(*ch->action_line);
+	//free_line(ch);
 	is_sorted2(ch);
 }

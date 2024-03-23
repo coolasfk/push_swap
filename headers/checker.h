@@ -6,7 +6,7 @@
 /*   By: eprzybyl <eprzybyl@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 14:24:12 by eprzybyl          #+#    #+#             */
-/*   Updated: 2024/03/23 13:32:19 by eprzybyl         ###   ########.fr       */
+/*   Updated: 2024/03/23 22:27:00 by eprzybyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,5 @@ void					print_list2(t_chl *a);
 void					error_handling2(int code);
 void					read_from_terminal(t_ch *ch);
 void					perform_operations(char *line, t_ch *ch);
+void					free_line(t_ch *ch);
 #endif
