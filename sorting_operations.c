@@ -6,7 +6,7 @@
 /*   By: eprzybyl <eprzybyl@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 12:18:47 by eprzybyl          #+#    #+#             */
-/*   Updated: 2024/03/23 22:15:33 by eprzybyl         ###   ########.fr       */
+/*   Updated: 2024/03/24 22:31:28 by eprzybyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,79 +51,10 @@ void	number_is_smaller(t_v *v)
 		v->index_b_loop++;
 		v->temp = v->temp->next;
 	}
-	if(v->diff != 0)
-	v->temp_index_b = 0;
+	if (v->diff != 0)
+		v->temp_index_b = 0;
 }
 
-void	rrr_rr_check(t_v *v)
-{
-	if ((v->index_a <= list_length(v->a) / 2)
-		&& (v->index_b <= list_length(v->b) / 2))
-	{
-		while (v->index_a > 0 && v->index_b > 0)
-		{
-			rr(v);
-			v->index_a--;
-			v->index_b--;
-		}
-	}
-	if ((v->index_a > list_length(v->a) / 2) && (v->index_b > list_length(v->b)
-			/ 2))
-	{
-		while ((list_length(v->b) - v->index_b > 0) && (list_length(v->a)
-				- v->index_a > 0))
-		{
-			rrr(v);
-			v->index_a++;
-			v->index_b++;
-		}
-	}
-}
-
-void	v_a_operations(t_v *v)
-{
-	if (v->index_a <= list_length(v->a) / 2)
-	{
-		while (v->index_a > 0)
-		{
-			rotate_a(v);
-			v->index_a--;
-		}
-	}
-	else
-	{
-		while (list_length(v->a) - v->index_a > 0)
-		{
-			rrotate_a(v);
-			v->index_a++;
-		}
-	}
-}
-
-void	operations(t_v *v)
-{
-	// printf("v->index_b %d\n", v->index_b);
-	rrr_rr_check(v);
-	v_a_operations(v);
-	if (v->index_b <= list_length(v->b) / 2)
-	{
-		while (v->index_b > 0)
-		{
-			rotate_b(v);
-			v->index_b--;
-		}
-	}
-	else
-	{
-		while (list_length(v->b) - v->index_b > 0)
-		{
-			rrotate_b(v);
-			v->index_b++;
-		}
-	}
-}
-
-/*
 void	rrr_rr_check(t_v *v)
 {
 	if ((v->index_a <= list_length(v->a) / 2)
@@ -190,4 +121,3 @@ void	operations(t_v *v)
 		}
 	}
 }
-*/

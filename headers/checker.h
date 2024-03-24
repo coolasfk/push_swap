@@ -6,7 +6,7 @@
 /*   By: eprzybyl <eprzybyl@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 14:24:12 by eprzybyl          #+#    #+#             */
-/*   Updated: 2024/03/23 22:27:00 by eprzybyl         ###   ########.fr       */
+/*   Updated: 2024/03/24 23:12:06 by eprzybyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ typedef struct s_check
 
 int						main(int argc, char *argv[]);
 void					swap_a2(t_ch *ch);
+void					ss2(t_ch *ch);
+void					swap_b2(t_ch *ch);
 void					rotate_a2(t_ch *ch);
 void					rotate_b2(t_ch *ch);
 void					push_b2(t_ch *ch);
@@ -72,4 +74,8 @@ void					error_handling2(int code);
 void					read_from_terminal(t_ch *ch);
 void					perform_operations(char *line, t_ch *ch);
 void					free_line(t_ch *ch);
+void					exit_message(char *str, int code);
+int						list_length2(t_chl *l);
+void					loop_action_line(t_ch *ch);
+
 #endif

@@ -6,7 +6,7 @@
 /*   By: eprzybyl <eprzybyl@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 12:18:00 by eprzybyl          #+#    #+#             */
-/*   Updated: 2024/03/23 23:04:08 by eprzybyl         ###   ########.fr       */
+/*   Updated: 2024/03/24 22:16:23 by eprzybyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,21 +42,6 @@ void	sort_three(t_v *v)
 	}
 }
 
-void	sort_five(t_v *v)
-{
-	sort_loop(v);
-	v->ptr = v->a;
-	if (is_sorted(v))
-		return ;
-	while (v->count-- > 4)
-		sort_loop(v);
-	v->ptr = v->a;
-	sort_three(v);
-	while (v->b != NULL)
-		push_a(v);
-	print_list(v->a);
-}
-
 void	sort_more(t_v *v)
 {
 	v->ptr = v->a;
@@ -65,9 +50,8 @@ void	sort_more(t_v *v)
 	{
 		v->temp_index_a = 0;
 		calc_cost(v);
-		operations(v);	
+		operations(v);
 		push_b(v);
-	
 	}
 	v->temp_index_a = 0;
 	calc_cost(v);
@@ -76,17 +60,6 @@ void	sort_more(t_v *v)
 	push_last_and_sort(v);
 	sadly_put_it_back(v);
 	is_sorted(v);
-}
-
-void	sadly_put_it_back(t_v *v)
-{
-	
-	while (v->b->next != NULL)
-	{
-		push_a(v);
-	}
-	push_a(v);
-	
 }
 
 void	calc_cost(t_v *v)
@@ -127,7 +100,7 @@ void	inner_loop(t_v *v)
 	{
 		if (v->temp->n <= v->ptr->n)
 		{
-			if (v->diff == 2147483647 ||  v->ptr->n - v->temp->n <= v->diff)
+			if (v->diff == 2147483647 || v->ptr->n - v->temp->n <= v->diff)
 			{
 				v->diff = v->ptr->n - v->temp->n;
 				v->temp_index_b = v->index_b_loop;
@@ -136,7 +109,6 @@ void	inner_loop(t_v *v)
 		v->index_b_loop++;
 		v->temp = v->temp->next;
 	}
-	// ft_printf("****v->temp_index_b %d\n", v->temp_index_b);
 	if (v->diff == 2147483647)
 		number_is_smaller(v);
 }

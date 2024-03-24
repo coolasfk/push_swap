@@ -6,7 +6,7 @@
 /*   By: eprzybyl <eprzybyl@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 11:57:39 by eprzybyl          #+#    #+#             */
-/*   Updated: 2024/03/08 13:04:45 by eprzybyl         ###   ########.fr       */
+/*   Updated: 2024/03/24 22:23:35 by eprzybyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	initialize_var(t_v *v)
 	v->i = 1;
 	v->diff = 2147483647;
 	v->count = 0;
+	v->sort_five = 0;
 }
 
 void	build_a(int argc, char *argv[], t_v *v)

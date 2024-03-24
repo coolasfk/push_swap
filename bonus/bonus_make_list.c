@@ -6,7 +6,7 @@
 /*   By: eprzybyl <eprzybyl@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 17:57:49 by eprzybyl          #+#    #+#             */
-/*   Updated: 2024/03/23 12:57:58 by eprzybyl         ###   ########.fr       */
+/*   Updated: 2024/03/24 22:56:41 by eprzybyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	initialize_var2(t_ch *ch)
 	ch->temp_line = NULL;
 	ch->new_line = NULL;
 	ch->action_line = NULL;
+	ch->action_count = 0;
 }
 
 void	build_a2(int argc, char *argv[], t_ch *ch)

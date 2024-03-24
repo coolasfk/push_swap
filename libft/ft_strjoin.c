@@ -6,7 +6,7 @@
 /*   By: eprzybyl <eprzybyl@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 20:39:31 by eprzybyl          #+#    #+#             */
-/*   Updated: 2024/01/25 20:41:53 by eprzybyl         ###   ########.fr       */
+/*   Updated: 2024/03/24 23:31:20 by eprzybyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,13 @@ char	*ft_strjoin(char *s1, char *s2)
 	if (!new)
 		return (NULL);
 	if (s1 != NULL)
+	{
 		while (i < ft_strlen(s1))
 		{
 			new[i] = s1[i];
 			i++;
 		}
+	}
 	while (i < len)
 		new[i++] = s2[c++];
 	new[i] = '\0';

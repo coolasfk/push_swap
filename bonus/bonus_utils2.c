@@ -1,44 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   bonus_utils2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eprzybyl <eprzybyl@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/08 12:22:36 by eprzybyl          #+#    #+#             */
-/*   Updated: 2024/03/24 22:25:45 by eprzybyl         ###   ########.fr       */
+/*   Created: 2024/03/24 22:39:07 by eprzybyl          #+#    #+#             */
+/*   Updated: 2024/03/24 23:31:54 by eprzybyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "headers/push_swap.h"
+#include "checker.h"
 
-int	is_sorted(t_v *v)
+void	free_leaks2(t_chl **a)
 {
-	t_lst	*check;
-
-	check = v->a;
-	while (check->next != NULL)
-	{
-		if (check->n > check->next->n)
-		{
-			check = v->a;
-			return (0);
-		}
-		check = check->next;
-	}
-	if (v->sort_five == 1)
-	{
-		while (v->b != NULL)
-			push_a(v);
-	}
-	exit(0);
-	return (1);
-}
-
-void	free_leaks(t_lst **a)
-{
-	t_lst	*ptr;
-	t_lst	*temp;
+	t_chl	*ptr;
+	t_chl	*temp;
 
 	if (a == NULL || *a == NULL)
 		return ;
@@ -53,9 +30,9 @@ void	free_leaks(t_lst **a)
 	*a = NULL;
 }
 
-void	print_list(t_lst *a)
+void	print_list2(t_chl *a)
 {
-	t_lst	*ptr;
+	t_chl	*ptr;
 
 	ptr = a;
 	ft_printf("print list %d\n", ptr->n);
@@ -66,34 +43,17 @@ void	print_list(t_lst *a)
 	}
 }
 
-int	search_for_biggest(t_v *v)
+void	error_handling2(int code)
 {
-	t_lst		*ptr;
-	long long	biggest;
-	int			index;
-	int			temp_index;
-
-	ptr = v->b;
-	biggest = ptr->n;
-	index = 0;
-	temp_index = 0;
-	while (ptr != NULL)
-	{
-		if (ptr->n >= biggest)
-		{
-			biggest = ptr->n;
-			index = temp_index;
-		}
-		ptr = ptr->next;
-		temp_index++;
-	}
-	return (index);
+	if (code == 1)
+		ft_printf("%s\n", "wrong number of arguments");
+	exit(0);
 }
 
-int	list_length(t_lst *l)
+int	list_length2(t_chl *l)
 {
 	int		length;
-	t_lst	*ptr;
+	t_chl	*ptr;
 
 	length = 1;
 	ptr = l;

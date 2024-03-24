@@ -6,7 +6,7 @@
 /*   By: eprzybyl <eprzybyl@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 08:49:16 by eprzybyl          #+#    #+#             */
-/*   Updated: 2024/03/23 14:28:25 by eprzybyl         ###   ########.fr       */
+/*   Updated: 2024/03/24 22:33:15 by eprzybyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,41 +57,6 @@ void	push_a(t_v *v)
 	v->counter++;
 	ft_printf("%s\n", "pa");
 }
-/*
-void	push_b(t_v *v)
-{
-	t_lst	*ptr;
-
-	ptr = v->a;
-	if (ptr->next != NULL)
-		v->a = ptr->next;
-	else
-		v->a = NULL;
-	if (v->a != NULL)
-		v->a->prev = NULL;
-	if (v->b == NULL)
-	{
-		v->b = ptr;
-		v->b->next = NULL;
-	}
-	else if (v->b != NULL)
-	{
-		ptr->next = v->b;
-		v->b->prev = ptr;
-		v->b = ptr;
-		v->b->prev = NULL;
-	}
-	v->counter++;
-	ft_printf("%s\n", "pb");
-}*/
-
-
-
-
-
-
-
-
 
 void	rotate_a(t_v *v)
 {

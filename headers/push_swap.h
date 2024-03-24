@@ -6,7 +6,7 @@
 /*   By: eprzybyl <eprzybyl@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 11:43:24 by eprzybyl          #+#    #+#             */
-/*   Updated: 2024/03/23 23:00:22 by eprzybyl         ###   ########.fr       */
+/*   Updated: 2024/03/24 22:26:23 by eprzybyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,11 @@ typedef struct s_v
 	long long		diff;
 	int				temp_index_b;
 	long long		biggest;
+	long long		smallest;
 	int				index_b_loop;
+	int				rounds;
+	int				index;
+	int				sort_five;
 }					t_v;
 
 void				print_list(t_lst *a);
@@ -92,6 +96,7 @@ void				rrotate_a1(t_v *v);
 void				rotate_a1(t_v *v);
 void				rotate_b1(t_v *v);
 void				sort_five(t_v *v);
-void	sort_loop(t_v *v);
+void				sort_loop(t_v *v);
+void				operations_sort_five(t_v *v);
 
 #endif /* SO_LONG_H */

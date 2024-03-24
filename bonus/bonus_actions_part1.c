@@ -6,7 +6,7 @@
 /*   By: eprzybyl <eprzybyl@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 08:49:16 by eprzybyl          #+#    #+#             */
-/*   Updated: 2024/03/23 22:19:29 by eprzybyl         ###   ########.fr       */
+/*   Updated: 2024/03/24 22:40:18 by eprzybyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 void	push_b2(t_ch *ch)
 {
-	
 	t_chl	*ptr;
 
-ptr = ch->a;
+	if (!ch->a)
+		exit_message("Operation cannot be performed!", 1);
+	ptr = ch->a;
 	if (ptr->next != NULL)
 		ch->a = ptr->next;
 	else
@@ -40,6 +41,11 @@ ptr = ch->a;
 
 void	push_a2(t_ch *ch)
 {
+	if (!ch->b)
+	{
+		ft_printf("Error: %s\n", "Operation cannot be performed!");
+		exit(1);
+	}
 	ch->ptr = ch->b;
 	if (ch->b->next != NULL)
 	{
@@ -57,6 +63,11 @@ void	push_a2(t_ch *ch)
 
 void	rotate_a2(t_ch *ch)
 {
+	if (!ch->a || ch->a->next == NULL)
+	{
+		ft_printf("Error: %s\n", "You cannot ra, it has only one element!");
+		exit(1);
+	}
 	if (ch->a == NULL || ch->a->next == NULL)
 		return ;
 	ch->temp = ch->a;
@@ -70,6 +81,11 @@ void	rotate_a2(t_ch *ch)
 
 void	rotate_b2(t_ch *ch)
 {
+	if (!ch->b || ch->b->next == NULL)
+	{
+		ft_printf("Error: %s\n", "You cannot rb!");
+		exit(1);
+	}
 	if (ch->b == NULL || ch->b->next == NULL)
 		return ;
 	ch->temp = ch->b;
@@ -85,6 +101,11 @@ void	swap_a2(t_ch *ch)
 {
 	int	temp;
 
+	if (!ch->a || ch->a->next == NULL)
+	{
+		ft_printf("Error: %s\n", "You cannot sa!");
+		exit(1);
+	}
 	temp = ch->a->n;
 	ch->a->n = ch->a->next->n;
 	ch->a->next->n = temp;

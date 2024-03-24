@@ -6,7 +6,7 @@
 /*   By: eprzybyl <eprzybyl@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 22:59:44 by eprzybyl          #+#    #+#             */
-/*   Updated: 2024/03/23 23:00:04 by eprzybyl         ###   ########.fr       */
+/*   Updated: 2024/03/24 22:32:17 by eprzybyl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,39 +14,56 @@
 
 void	sort_loop(t_v *v)
 {
-	int	smallest;
-	int	rounds;
-	int	index;
-
-	rounds = 0;
-	index = 0;
+	v->rounds = 0;
+	v->index = 0;
 	v->ptr = v->a;
-	smallest = v->ptr->n;
+	v->smallest = v->ptr->n;
 	while (v->ptr != NULL)
 	{
-		if (v->ptr->n < smallest)
+		if (v->ptr->n < v->smallest)
 		{
-			smallest = v->ptr->n;
-			index = rounds;
+			v->smallest = v->ptr->n;
+			v->index = v->rounds;
 		}
-		rounds++;
+		v->rounds++;
 		v->ptr = v->ptr->next;
 	}
 	v->ptr = v->a;
-	if (index <= rounds / 2)
+	operations_sort_five(v);
+	push_b(v);
+}
+
+void	operations_sort_five(t_v *v)
+{
+	if (v->index <= v->rounds / 2)
 	{
-		while (index-- && !is_sorted(v))
+		while (v->index-- && !is_sorted(v))
 			rotate_a(v);
 	}
 	else
 	{
-		while (rounds - index > 0 && !is_sorted(v))
+		while (v->rounds - v->index > 0 && !is_sorted(v))
 		{
 			rrotate_a(v);
-			index++;
+			v->index++;
 		}
 	}
-	if (is_sorted(v))
-		return ;
-	push_b(v);
+}
+
+void	sort_five(t_v *v)
+{
+	v->sort_five = 1;
+	sort_loop(v);
+	v->ptr = v->a;
+	while (v->count-- > 4)
+		sort_loop(v);
+	v->ptr = v->a;
+	sort_three(v);
+}
+
+void	sadly_put_it_back(t_v *v)
+{
+	while (v->b->next != NULL)
+		push_a(v);
+	push_a(v);
 }
